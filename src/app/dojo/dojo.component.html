@@ -1,1 +1,12 @@
-<p>dojo works!</p>
+<div>
+  <label>Enter String:</label>
+  <input [(ngModel)]="inputString" type="text">
+
+  <label>Enter number of rows:</label>
+  <input [(ngModel)]="numRows" type="number">
+
+  <button (click)="convert()">Convert</button>
+
+  <label>Result:</label>
+  <p>{{result}}</p>
+</div>
