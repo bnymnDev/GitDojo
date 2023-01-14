@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DojoComponent implements OnInit {
   inputString = "";
-  numRows =  3;
+  numRows = 3;
   result = "";
 
   convert(){
