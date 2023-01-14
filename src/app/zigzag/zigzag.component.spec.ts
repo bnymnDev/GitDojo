@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DojoComponent } from './dojo.component';
+import { ZigzagComponent } from './zigzag.component';
 
 describe('DojoComponent', () => {
-  let component: DojoComponent;
-  let fixture: ComponentFixture<DojoComponent>;
+  let component: ZigzagComponent;
+  let fixture: ComponentFixture<ZigzagComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DojoComponent ]
+      declarations: [ ZigzagComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DojoComponent);
+    fixture = TestBed.createComponent(ZigzagComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

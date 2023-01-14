@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dojo',
-  templateUrl: './dojo.component.html',
-  styleUrls: ['./dojo.component.css']
+  selector: 'app-zigzag',
+  templateUrl: './zigzag.component.html',
+  styleUrls: ['./zigzag.component.css']
 })
-export class DojoComponent implements OnInit {
+export class ZigzagComponent implements OnInit {
   inputString = "";
   numRows = 3;
   result = "";
@@ -33,9 +33,9 @@ export class DojoComponent implements OnInit {
     }
     this.result = "";
     for (let i = 0; i<this.numRows; i++){
-      for (let j = 0; j<zigzag[i].length; j++){
-        if(zigzag[i][j]){
-          this.result += zigzag[i][j];
+      for (const element of zigzag[i]){
+        if(element){
+          this.result += element;
         }
       }
     }
