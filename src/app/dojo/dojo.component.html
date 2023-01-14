@@ -1,12 +1,16 @@
-<div>
-  <label>Enter String:</label>
-  <input [(ngModel)]="inputString" type="text">
+<mat-form-field>
+  <mat-label>Enter String:</mat-label>
+  <input matInput [(ngModel)]="inputString" type="text">
+</mat-form-field>
 
-  <label>Enter number of rows:</label>
-  <input [(ngModel)]="numRows" type="number">
+<mat-form-field>
+  <mat-label>Enter number of rows:</mat-label>
+  <input matInput [(ngModel)]="numRows" type="number">
+</mat-form-field>
 
-  <button (click)="convert()">Convert</button>
+<button mat-raised-button color="primary" (click)="convert()">Convert</button>
 
-  <label>Result:</label>
-  <p>{{result}}</p>
-</div>
+<mat-form-field>
+  <mat-label>Result:</mat-label>
+  <textarea matInput [(ngModel)]="result"></textarea>
+</mat-form-field>

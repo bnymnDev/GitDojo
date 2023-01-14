@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DojoComponent } from './dojo/dojo.component';
-import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -12,9 +14,11 @@ import {FormsModule} from "@angular/forms";
     DojoComponent
   ],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
+      BrowserModule,
+      FormsModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatButtonModule
     ],
   providers: [],
   bootstrap: [AppComponent]
