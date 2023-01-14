@@ -25,5 +25,10 @@
       <mat-label>Result:</mat-label>
       <input  matInput [(ngModel)]="result" readonly>
     </mat-form-field>
+
+    <h5>Output:</h5>
+    <div class="grid-container">
+      <div *ngFor="let element of zigzag" class="grid-item">{{element}}</div>
+    </div>
   </div>
 </div>

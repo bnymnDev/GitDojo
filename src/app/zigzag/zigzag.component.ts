@@ -3,47 +3,45 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-zigzag',
   templateUrl: './zigzag.component.html',
-  styleUrls: ['./zigzag.component.css']
+  styleUrls: ['./zigzag.component.css'],
 })
 export class ZigzagComponent implements OnInit {
-  inputString = "";
+  inputString: string | any;
   numRows = 3;
-  result = "";
+  result: string | any;
+  zigzag: string[][] = [];
 
-  convert(){
-    if (this.numRows == 1){
+  convert() {
+    if (this.numRows == 1) {
       this.result = this.inputString;
+      this.zigzag = [this.inputString.split('')];
       return;
     }
-
-    let zigzag = new Array(this.numRows);
-    for (let i = 0; i<this.numRows; i++){
-      zigzag[i] = new Array();
-    }
+    this.zigzag = Array.from({ length: this.numRows }, () => new Array());
     let row = 0;
     let col = 0;
     let goingDown = false;
-    for(let c of this.inputString){
-      zigzag[row][col] = c;
-      if(row == 0 || row == this.numRows - 1){
+    for (let c of this.inputString) {
+      this.zigzag[row][col] = c;
+      if (row == 0 || row == this.numRows - 1) {
         goingDown = !goingDown;
       }
-      row += goingDown ? 1: -1;
+      row += goingDown ? 1 : -1;
       col++;
     }
-    this.result = "";
-    for (let i = 0; i<this.numRows; i++){
-      for (const element of zigzag[i]){
-        if(element){
+    this.result = '';
+    for (let i = 0; i < this.numRows; i++) {
+      for (const element of this.zigzag[i]) {
+        if (element) {
           this.result += element;
         }
       }
     }
   }
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    this.convert();
   }
-
 }
