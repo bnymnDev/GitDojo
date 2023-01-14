@@ -12,7 +12,6 @@ import { ZigzagComponent } from './zigzag/zigzag.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

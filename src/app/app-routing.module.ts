@@ -5,8 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import  { ZigzagComponent } from "./zigzag/zigzag.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'home', component: NavbarComponent },
+  { path: '', redirectTo: 'zigzag', pathMatch: 'full' },
   { path: 'zigzag', component: ZigzagComponent },
 ];
 

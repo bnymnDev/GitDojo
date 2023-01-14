@@ -1,18 +1,29 @@
-<h1>ZigZag Conversion</h1>
-<mat-form-field>
-  <mat-label>Word:</mat-label>
-  <input matInput [(ngModel)]="inputString" type="text">
-</mat-form-field>
+<div class="body">
+  <div class="form-box">
+    <h1>ZigZag Converter</h1>
+    <mat-form-field class="word">
+      <mat-label>Word:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="inputString"
+        (ngModelChange)="convert()"
+        type="text"
+      />
+    </mat-form-field>
 
-<mat-form-field>
-  <mat-label>NumRows:</mat-label>
-  <input matInput [(ngModel)]="numRows" type="number">
-</mat-form-field>
+    <mat-form-field class="numrows">
+      <mat-label>NumRows:</mat-label>
+      <input
+        matInput
+        [(ngModel)]="numRows"
+        (ngModelChange)="convert()"
+        type="number"
+      />
+    </mat-form-field>
 
-<button mat-raised-button color="primary" (click)="convert()">Convert</button>
-
-<mat-form-field>
-  <br>
-  <mat-label>Result Word:</mat-label>
-  <textarea matInput [(ngModel)]="result"></textarea>
-</mat-form-field>
+    <mat-form-field class="result">
+      <mat-label>Result:</mat-label>
+      <input  matInput [(ngModel)]="result" readonly>
+    </mat-form-field>
+  </div>
+</div>
