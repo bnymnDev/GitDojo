@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./zigzag.component.css'],
 })
 export class ZigzagComponent implements OnInit {
-  inputString: string | any;
+  inputString = '';
   numRows = 3;
-  result: string | any;
+  result = '';
   zigzag: string[][] = [];
 
   convert() {
