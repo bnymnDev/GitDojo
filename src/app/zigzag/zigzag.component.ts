@@ -31,14 +31,7 @@ export class ZigzagComponent implements OnInit {
       row += goingDown ? 1: -1;
       col++;
     }
-    this.result = "";
-    for (let i = 0; i<this.numRows; i++){
-      for (const element of zigzag[i]){
-        if(element){
-          this.result += element;
-        }
-      }
-    }
+    this.result = zigzag.map(row => row.join('')).join('').replace(/,/g, '');
   }
 
   constructor() { }
