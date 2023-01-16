@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./zigzag.component.css'],
 })
 export class ZigzagComponent implements OnInit {
-  inputString = '';
+  inputString: string = '';
   numRows = 3;
   result = '';
   zigzag: string[][] = [];
@@ -14,9 +14,10 @@ export class ZigzagComponent implements OnInit {
   convert() {
     if (this.numRows == 1) {
       this.result = this.inputString;
-      this.zigzag = [this.inputString.split('')];
+      this.zigzag = [Array.from(this.inputString)];
       return;
     }
+
     this.zigzag = Array.from({ length: this.numRows }, () => new Array());
     let row = 0;
     let col = 0;
