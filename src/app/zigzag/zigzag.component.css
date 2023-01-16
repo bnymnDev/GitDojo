@@ -12,7 +12,7 @@ mat-button {
 
 .form-box {
   width: 50%;
-  height: 300px;
+  height: 600px;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.726);
   padding: 3%;
@@ -28,14 +28,13 @@ mat-button {
   color: brown;
 }
 
-.grid-container {
-  color: brown;
-  width: 30px;
-  height: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+table {
+  width: 100%;
+  border-style: hidden;
   display: block;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 5px;
+}
+
+td {
+  border: 1px solid transparent;
+  text-align: left;
 }

@@ -30,19 +30,11 @@ export class ZigzagComponent implements OnInit {
       row += goingDown ? 1 : -1;
       col++;
     }
-    this.result = '';
-    for (let i = 0; i < this.numRows; i++) {
-      for (const element of this.zigzag[i]) {
-        if (element) {
-          this.result += element;
-        }
-      }
-    }
+    this.result = this.zigzag.map(row => row.filter(Boolean).join('')).join('');
   }
 
   constructor() {}
 
   ngOnInit(): void {
-    this.convert();
   }
 }
