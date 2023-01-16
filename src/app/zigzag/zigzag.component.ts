@@ -45,5 +45,5 @@ export class ZigzagComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
+
