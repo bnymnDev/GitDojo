@@ -1,0 +1,21 @@
+<div class="body">
+  <div class="form-box">
+    <form>
+      <mat-form-field>
+        <mat-label>Number</mat-label>
+        <input matInput [(ngModel)]="inputNumber" (ngModelChange)="generateFizzBuzz()" name="inputNumber" type="number" />
+      </mat-form-field>
+    </form>
+    <br />
+    <div class="table-wrapper">
+      <table mat-table [dataSource]="fizzBuzzResults">
+        <ng-container matColumnDef="number">
+          <th mat-header-cell *matHeaderCellDef>Results</th>
+          <td mat-cell *matCellDef="let result">{{ result }}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>

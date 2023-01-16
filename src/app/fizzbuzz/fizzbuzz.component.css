@@ -1,0 +1,49 @@
+.mat-form-field {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.table-wrapper {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+
+.mat-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.container {
+  padding: 16px;
+}
+
+.form-box {
+  width: 50%;
+  height: 600px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.726);
+  padding: 3%;
+  border-radius: 20px;
+}
+
+.body {
+  margin-top: 2%;
+}
+
+form {
+  margin-bottom: 16px;
+}
+
+table tr:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.mat-header-cell {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}

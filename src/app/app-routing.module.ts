@@ -1,3 +1,4 @@
+import { FizzbuzzComponent } from './fizzbuzz/fizzbuzz.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import  { ZigzagComponent } from "./zigzag/zigzag.component";
 const routes: Routes = [
   { path: '', redirectTo: 'zigzag', pathMatch: 'full' },
   { path: 'zigzag', component: ZigzagComponent },
+  { path: 'fizzbuzz', component: FizzbuzzComponent },
 ];
 
 
