@@ -30,11 +30,5 @@ mat-button {
 
 table {
   width: 100%;
-  border-style: hidden;
   display: block;
-}
-
-td {
-  border: 1px solid transparent;
-  text-align: left;
 }
