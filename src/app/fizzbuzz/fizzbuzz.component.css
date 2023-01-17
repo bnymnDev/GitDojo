@@ -60,7 +60,9 @@ form {
   margin-top: 10px;
 }
 
-.codeSnippet{
+.codeSnippet {
+  padding: 3%;
+  margin: auto;
   background-color: #15181E;
   color: whitesmoke;
 }
