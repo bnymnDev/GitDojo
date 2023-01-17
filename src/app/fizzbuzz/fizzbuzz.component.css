@@ -25,7 +25,7 @@ table {
 
 .form-box {
   width: 50%;
-  height: 600px;
+  height: auto;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.726);
   padding: 3%;
@@ -40,10 +40,26 @@ form {
   margin-bottom: 16px;
 }
 
-table tr:hover {
-  background-color: rgba(0, 0, 0, 0.04);
+.exportButtons{
+  padding-top: 10px;
+  float: left;
+ }
+
+
+ .form-box-explanation {
+  width: 50%;
+  height: auto;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.726);
+  padding: 3%;
+  border-radius: 20px;
 }
 
-.mat-header-cell {
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+ .explanation {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.codeSnippet{
+  background-color: #15181E;
 }

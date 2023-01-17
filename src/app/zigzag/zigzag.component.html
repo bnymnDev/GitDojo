@@ -3,20 +3,35 @@
     <h1>ZigZag Converter</h1>
     <mat-form-field class="word">
       <mat-label>Word:</mat-label>
-      <input matInput [(ngModel)]="inputString" (ngModelChange)="convert()" type="text" />
+      <input
+        matInput
+        [(ngModel)]="inputString"
+        (ngModelChange)="convert()"
+        type="text"
+      />
     </mat-form-field>
 
     <mat-form-field class="numrows">
       <mat-label>NumRows:</mat-label>
-      <input matInput [(ngModel)]="numRows" (ngModelChange)="convert()" type="number" />
+      <input
+        matInput
+        [(ngModel)]="numRows"
+        (ngModelChange)="convert()"
+        type="number"
+      />
     </mat-form-field>
 
     <mat-form-field class="result">
       <mat-label>Result:</mat-label>
-      <input matInput [(ngModel)]="result" readonly>
+      <input matInput [(ngModel)]="result" readonly />
     </mat-form-field>
+  </div>
+</div>
 
-    <h5>Output:</h5>
+<br />
+
+<div *ngIf="inputString" class="form-box-explanation">
+  <div>
     <table>
       <tr *ngFor="let row of zigzag">
         <td *ngFor="let element of row">{{ element }}</td>
@@ -24,6 +39,7 @@
     </table>
   </div>
 </div>
+
 <!-- PAYPALISHIRING -->
 <!--
 P				A				H				N

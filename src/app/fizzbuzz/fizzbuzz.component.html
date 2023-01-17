@@ -1,9 +1,16 @@
 <div class="body">
   <div class="form-box">
+    <h1>FizzBuzz Challenge</h1>
     <form>
       <mat-form-field>
         <mat-label>Number</mat-label>
-        <input matInput [(ngModel)]="inputNumber" (ngModelChange)="generateFizzBuzz()" name="inputNumber" type="number" />
+        <input
+          matInput
+          [(ngModel)]="inputNumber"
+          (ngModelChange)="generateFizzBuzz()"
+          name="inputNumber"
+          type="number"
+        />
       </mat-form-field>
     </form>
     <br />
@@ -17,5 +24,35 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
     </div>
+    <div class="exportButtons">
+      <button
+        mat-raised-button
+        color="primary"
+        [matMenuTriggerFor]="exportMenu"
+      >
+        <mat-icon>arrow_drop_down</mat-icon>
+        Export Data
+      </button>
+      <mat-menu #exportMenu="matMenu">
+        <button mat-menu-item (click)="exportTXT()">TXT</button>
+        <button mat-menu-item (click)="exportJSON()">JSON</button>
+        <button mat-menu-item (click)="exportPDF()">PDF</button>
+        <button mat-menu-item (click)="exportCSV()">CSV</button>
+        <button mat-menu-item (click)="exportXML()">XML</button>
+      </mat-menu>
+    </div>
+  </div>
+</div>
+<br>
+<div class="form-box-explanation">
+  <div class="explanation">
+    <p>
+      Die FizzBuzz-Berechnung funktioniert folgendermaßen, indem die Zahlen von 1 bis {{inputNumber}}
+      durchlaufen werden und jede Zahl, die durch 3 teilbar ist, durch "Fizz",
+      jede Zahl, die durch 5 teilbar ist, durch "Buzz" und jede Zahl, die
+      sowohl durch 3 als auch durch 5 teilbar ist, durch "FizzBuzz" ersetzt
+      wird.
+    </p>
+    <pre class="codeSnippet">{{fizzBuzzSnippet}}</pre>
   </div>
 </div>
