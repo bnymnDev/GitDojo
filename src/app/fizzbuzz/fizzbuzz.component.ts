@@ -5,7 +5,6 @@ import { saveAs } from 'file-saver';
 import * as json2csv from 'json2csv';
 import jsPDF from 'jspdf';
 import * as xmlbuilder from 'xmlbuilder';
-import { FizzbuzzSnippet } from './fizzbuzzSnippet';
 
 
 @Component({
@@ -18,8 +17,9 @@ export class FizzbuzzComponent implements OnInit {
   inputNumber: number = 5;
   fizzBuzzResults: any[] = [];
   displayedColumns: string[] = ['number'];
+  showSnippet: boolean = false
 
-  fizzBuzzSnippet = FizzbuzzSnippet;
+  fizzBuzzSnippet = this.generateFizzBuzz;
 
   generateFizzBuzz() {
     if (this.inputNumber <= 10000) {
@@ -79,29 +79,6 @@ export class FizzbuzzComponent implements OnInit {
     const xmlData = root.end({ pretty: true });
     const blob = new Blob([xmlData], { type: 'text/xml;charset=utf-8' });
     saveAs(blob, 'fizzbuzz-results.xml');
-  }
-
-  exportData() {
-    const exportType = prompt(
-      'Please enter the type of export you want (json, csv, txt, pdf)'
-    );
-    switch (exportType) {
-      case 'json':
-        this.exportJSON();
-        break;
-      case 'csv':
-        this.exportCSV();
-        break;
-      case 'txt':
-        this.exportTXT();
-        break;
-      case 'pdf':
-        this.exportPDF();
-        break;
-      default:
-        alert('Invalid export type. Please enter json, csv, txt, or pdf.');
-        break;
-    }
   }
 
   constructor(private snackBar: MatSnackBar) {}

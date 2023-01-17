@@ -11,8 +11,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 import { AppComponent } from './app.component';
 import { ZigzagComponent } from './zigzag/zigzag.component';
 import { AppRoutingModule } from './app-routing.module';
