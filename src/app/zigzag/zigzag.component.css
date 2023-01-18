@@ -12,7 +12,7 @@ mat-button {
 
 .form-box {
   width: 50%;
-  height: 600px;
+  height: auto;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.726);
   padding: 3%;
@@ -31,4 +31,18 @@ mat-button {
 table {
   width: 100%;
   display: block;
+}
+
+.form-box-explanation {
+  width: 50%;
+  height: auto;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.726);
+  padding: 3%;
+  border-radius: 20px;
+}
+
+ .explanation {
+  padding: 10px;
+  margin-top: 10px;
 }

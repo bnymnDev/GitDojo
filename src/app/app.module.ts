@@ -8,8 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
 import { ZigzagComponent } from './zigzag/zigzag.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +32,8 @@ import { NavbarComponent } from './navbar/navbar.component';
       MatToolbarModule,
       MatTableModule,
       MatSnackBarModule,
+      MatMenuModule,
+      MatIconModule,
       BrowserAnimationsModule,
       AppRoutingModule
     ],
