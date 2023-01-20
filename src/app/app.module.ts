@@ -1,4 +1,4 @@
-import { FizzbuzzComponent } from './fizzbuzz/fizzbuzz.component';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,12 +10,20 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { ZigzagComponent } from './zigzag/zigzag.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ZigzagComponent } from './zigzag/zigzag.component';
+import { FizzbuzzComponent } from './fizzbuzz/fizzbuzz.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { OptasweeperComponent } from './optasweeper/optasweeper.component';
+import { GameOverModalComponent } from './optasweeper/game-over-modal.component';
+import { NewGameModalComponent } from './optasweeper/new-game-modal/new-game-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +31,9 @@ import { OptasweeperComponent } from './optasweeper/optasweeper.component';
     ZigzagComponent,
     NavbarComponent,
     FizzbuzzComponent,
-    OptasweeperComponent
+    OptasweeperComponent,
+    GameOverModalComponent,
+    NewGameModalComponent,
   ],
     imports: [
       BrowserModule,
@@ -36,6 +46,10 @@ import { OptasweeperComponent } from './optasweeper/optasweeper.component';
       MatSnackBarModule,
       MatMenuModule,
       MatIconModule,
+      MatGridListModule,
+      MatDialogModule,
+      MatSelectModule,
+      MatRadioModule,
       BrowserAnimationsModule,
       AppRoutingModule
     ],

@@ -1,20 +1,20 @@
 <div class="body">
   <div class="form-box">
     <h1>OptaSweeper</h1>
+    <button mat-raised-button color="primary" (click)="openNewGameModal()" class="newGame">Neues Spiel</button>
     <table>
       <tr *ngFor="let row of field; let i = index">
-        <td *ngFor="let col of row; let j = index" (click)="openField(i, j)">
-          <span *ngIf="field[i][j].mine">B</span>
-          <span *ngIf="!field[i][j].mine">{{ field[i][j].minesAround }}</span>
-        </td>
+        <td *ngFor="let col of row; let j = index" (click)="openField(i, j)" class="field-cell" [ngStyle]="{'color': getNumberColor(field[i][j].minesAround) , 'background-color': getBackgroundColor(field[i][j].open) }">
+          <span *ngIf="field[i][j].mine && field[i][j].open" class="mineIcon">
+              <img src="assets/icons/icons8-naval-mine-40.png" />
+          </span>
+          <span *ngIf="!field[i][j].mine && field[i][j].open && field[i][j].minesAround != 0">{{ field[i][j].minesAround }}</span>
+      </td>
       </tr>
     </table>
-    <button mat-raised-button color="primary" (click)="restartGame()">Neustart</button>
   </div>
 </div>
-
 <br />
-
 <div class="form-box-explanation">
   <div>
     <table>

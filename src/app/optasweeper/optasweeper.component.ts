@@ -1,22 +1,61 @@
-import {Component, OnInit} from '@angular/core';
-import {MatSnackBar} from "@angular/material/snack-bar";
+import { NewGameModalComponent } from './new-game-modal/new-game-modal.component';
+import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { GameOverModalComponent } from './game-over-modal.component';
 
 @Component({
   selector: 'app-optasweeper',
   templateUrl: './optasweeper.component.html',
-  styleUrls: ['./optasweeper.component.css']
+  styleUrls: ['./optasweeper.component.css'],
 })
 export class OptasweeperComponent implements OnInit {
+  public field: any[][] = [];
+  numberOfMines: number = 0;
 
-  constructor(private snackBar: MatSnackBar) {
-    // vorerst nur mit 8x8 Spielfeld, kann aber geändert werden
-    this.createField(8, 8);
-    this.placeMines();
-    this.countMinesAround();
+  constructor(private snackBar: MatSnackBar, public dialog: MatDialog) {}
+
+  openNewGameModal(): void {
+    const dialogRef = this.dialog.open(NewGameModalComponent, {});
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        if (result.difficulty === 'beginner') {
+          this.numberOfMines = 10;
+          this.createField(8, 8);
+        } else if (result.difficulty === 'intermediate') {
+          this.numberOfMines = 40;
+          this.createField(16, 16);
+        } else if (result.difficulty === 'expert') {
+          this.numberOfMines = 99;
+          this.createField(30, 16);
+        } else if (result.difficulty === 'custom') {
+          this.createField(result.customWidth, result.customHeight);
+          this.numberOfMines = result.customMines;
+        }
+        this.placeMines();
+        this.countMinesAround();
+      }
+    });
   }
 
-  public field: any[][] = [];
-  numberOfMines: number = 10;
+  gameOver() {
+    const dialogRef = this.dialog.open(GameOverModalComponent);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.openNewGameModal();
+      } else {
+        this.revealAllFields();
+      }
+    });
+  }
+
+  revealAllFields() {
+    for (let i = 0; i < this.field.length; i++) {
+      for (let j = 0; j < this.field[i].length; j++) {
+        this.field[i][j].open = true;
+      }
+    }
+  }
 
   /*
   mine = gibt an, ob sich auf dem Feld eine Mine befindet
@@ -28,7 +67,7 @@ export class OptasweeperComponent implements OnInit {
     for (let i = 0; i < height; i++) {
       this.field[i] = [];
       for (let j = 0; j < width; j++) {
-        this.field[i][j] = {mine: false, open: false, minesAround: 0};
+        this.field[i][j] = { mine: false, open: false, minesAround: 0 };
       }
     }
   }
@@ -50,8 +89,6 @@ export class OptasweeperComponent implements OnInit {
     this.field[x][y].marked = true;
   }
 
-
-  // todo: Methoden zum Platzieren der Minen
   placeMines() {
     for (let i = 0; i < this.numberOfMines; i++) {
       let x = Math.floor(Math.random() * this.field.length);
@@ -64,7 +101,6 @@ export class OptasweeperComponent implements OnInit {
     }
   }
 
-
   // todo: Code zum Zählen der Minen in benachbarten Feldern
   countMinesAround() {
     for (let i = 0; i < this.field.length; i++) {
@@ -73,7 +109,13 @@ export class OptasweeperComponent implements OnInit {
           let mines = 0;
           for (let x = i - 1; x <= i + 1; x++) {
             for (let y = j - 1; y <= j + 1; y++) {
-              if (x >= 0 && x < this.field.length && y >= 0 && y < this.field[x].length && this.field[x][y].mine) {
+              if (
+                x >= 0 &&
+                x < this.field.length &&
+                y >= 0 &&
+                y < this.field[x].length &&
+                this.field[x][y].mine
+              ) {
                 mines++;
               }
             }
@@ -84,30 +126,41 @@ export class OptasweeperComponent implements OnInit {
     }
   }
 
-
   openFieldsAround(x: number, y: number) {
     for (let i = x - 1; i <= x + 1; i++) {
       for (let j = y - 1; j <= y + 1; j++) {
-        if (i >= 0 && i < this.field.length && j >= 0 && j < this.field[i].length) {
+        if (
+          i >= 0 &&
+          i < this.field.length &&
+          j >= 0 &&
+          j < this.field[i].length
+        ) {
           this.openField(i, j);
         }
       }
     }
   }
 
-
-  gameOver() {
-    this.snackBar.open('Game Over', 'OK :(', { duration: 1500 });
+  getNumberColor(minesAround: number) {
+    switch (minesAround) {
+      case 0:
+        return '#F2F2F2';
+      case 1:
+        return 'blue';
+      case 2:
+        return 'green';
+      case 3:
+        return 'red';
+      case 4:
+        return 'purple';
+      default:
+        return 'darkred';
+    }
   }
 
-  restartGame(){
-    this.createField(8, 8);
-    this.placeMines();
-    this.countMinesAround();
-  }
+  getBackgroundColor(open: boolean): string {
+    return open ? '#F2F2F2' : '';
+    }
 
-  ngOnInit(): void {
-    this.snackBar.open('Spiel gestartet', 'OK', { duration: 3000 });
-  }
-
+  ngOnInit(): void {}
 }

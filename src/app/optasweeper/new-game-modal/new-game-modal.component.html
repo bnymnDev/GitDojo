@@ -1,0 +1,43 @@
+<div class="new-game-modal">
+  <h1>Neues Spiel</h1>
+  <div class="difficulty-levels">
+    <mat-radio-group [(ngModel)]="difficulty">
+      <mat-radio-button value="beginner"
+        >Anfänger (8x8, 10 Minen)</mat-radio-button
+      >
+      <mat-radio-button value="intermediate"
+        >Fortgeschrittene (16x16, 40 Minen)</mat-radio-button
+      >
+      <mat-radio-button value="expert"
+        >Profis (30x16, 99 Minen)</mat-radio-button
+      >
+      <mat-radio-button value="custom">Benutzerdefiniert</mat-radio-button>
+    </mat-radio-group>
+    <div *ngIf="difficulty === 'custom'">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Spielfeldbreite (max. 30)"
+          [(ngModel)]="customWidth"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Spielfeldhöhe (max. 24)"
+          [(ngModel)]="customHeight"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Anzahl Minen (max. 668)"
+          [(ngModel)]="customMines"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <button mat-raised-button color="primary" (click)="startNewGame()">
+    Start
+  </button>
+</div>
