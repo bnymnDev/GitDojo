@@ -1,0 +1,23 @@
+<div class="body">
+  <div class="form-box">
+    <h1>OptaSweeper</h1>
+    <table>
+      <tr *ngFor="let row of field; let i = index">
+        <td *ngFor="let col of row; let j = index" (click)="openField(i, j)">
+          <span *ngIf="field[i][j].mine">B</span>
+          <span *ngIf="!field[i][j].mine">{{ field[i][j].minesAround }}</span>
+        </td>
+      </tr>
+    </table>
+    <button mat-raised-button color="primary" (click)="restartGame()">Neustart</button>
+  </div>
+</div>
+
+<br />
+
+<div class="form-box-explanation">
+  <div>
+    <table>
+    </table>
+  </div>
+</div>
