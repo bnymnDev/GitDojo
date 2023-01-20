@@ -15,13 +15,15 @@ import { AppComponent } from './app.component';
 import { ZigzagComponent } from './zigzag/zigzag.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { OptasweeperComponent } from './optasweeper/optasweeper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ZigzagComponent,
     NavbarComponent,
-    FizzbuzzComponent
+    FizzbuzzComponent,
+    OptasweeperComponent
   ],
     imports: [
       BrowserModule,
