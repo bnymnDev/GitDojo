@@ -12,6 +12,8 @@ import { GameOverModalComponent } from './game-over-modal.component';
 export class OptasweeperComponent implements OnInit {
   public field: any[][] = [];
   numberOfMines: number = 0;
+  timer: number = 0;
+  intervalId: any;
 
   constructor(private snackBar: MatSnackBar, public dialog: MatDialog) {}
 
@@ -34,11 +36,28 @@ export class OptasweeperComponent implements OnInit {
         }
         this.placeMines();
         this.countMinesAround();
+        this.startTimer();
       }
     });
   }
 
+  startTimer() {
+    this.timer = 0;
+    this.intervalId = setInterval(() => {
+      this.timer++;
+    }, 1000);
+  }
+
+  stopTimer() {
+    clearInterval(this.timer);
+  }
+
+  getTimer() {
+    return this.timer;
+  }
+
   gameOver() {
+    clearInterval(this.intervalId);
     const dialogRef = this.dialog.open(GameOverModalComponent);
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
@@ -48,6 +67,12 @@ export class OptasweeperComponent implements OnInit {
       }
     });
   }
+
+  win() {
+    clearInterval(this.intervalId);
+    // Code zum Anzeigen des Gewonnen-Modals
+}
+
 
   revealAllFields() {
     for (let i = 0; i < this.field.length; i++) {
@@ -160,7 +185,7 @@ export class OptasweeperComponent implements OnInit {
 
   getBackgroundColor(open: boolean): string {
     return open ? '#F2F2F2' : '';
-    }
+  }
 
   ngOnInit(): void {}
 }
